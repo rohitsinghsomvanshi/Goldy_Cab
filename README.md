@@ -95,4 +95,13 @@ If you want to change the WhatsApp number, update `BUSINESS_PHONE` in `bookings/
 MCA Student
 
 Aspiring Data Analyst | Python Developer | Machine Learning Enthusiast
+
+
+📧 Email: rohitsinghsomvanci00@gmail.com
+
+🔗 LinkedIn: https://linkedin.com/in/rohitsinghsomvanshi 
+
+💻 GitHub: https://github.com/rohitsinghsomvanshi
+
+🔗 Portfolio: [https://github.com/rohitsinghsomvanshi](https://rohitsinghsomvanshi.github.io/Portfolio/)
   
