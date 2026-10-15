@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-shade"></div><div class="container hero-content">
+    <div class="hero-copy"><span class="eyebrow">WELCOME TO GOLDY CAB SERVICES</span><h1>Your Journey.<br><em>Our Responsibility.</em></h1><p>Comfortable rides, dependable service and easy booking for every journey.</p>
+      <div class="hero-actions"><a class="btn btn-yellow" href="#booking">Book a Cab <span>→</span></a><a class="btn btn-outline" href="tel:+91{{ business_phone }}">Call {{ business_phone }}</a></div>
+      <div class="hero-points"><span>✓ Local & city rides</span><span>✓ Airport transfers</span><span>✓ Outstation trips</span></div>
+    </div>
+    <div class="hero-card"><div class="hero-card-icon">🚖</div><h2>Ride with confidence</h2><p>Plan your next trip in a few simple steps.</p><a href="#booking" class="text-link">Start booking <span>↗</span></a></div>
+  </div>
+</section>
+<section class="trust-strip"><div class="container trust-items"><span>✦ Easy booking</span><span>✦ Multiple trip options</span><span>✦ Direct WhatsApp support</span><span>✦ Customer-first service</span></div></section>
+<section class="section" id="booking"><div class="container booking-layout">
+  <div class="section-intro"><span class="eyebrow dark">BOOK YOUR RIDE</span><h2>Where would you<br><em>like to go?</em></h2><p>Share your trip details. Your request will be saved for the team and opened in WhatsApp for quick follow-up.</p>
+    <div class="contact-card"><div class="contact-icon">☎</div><div><small>Need help booking?</small><strong>+91 {{ business_phone }}</strong><a href="https://wa.me/91{{ business_phone }}">Chat with us on WhatsApp →</a><a href="mailto:{{ business_email }}">Email us: {{ business_email }} →</a></div></div></div>
+  <div class="booking-card"><div class="booking-heading"><div><span class="eyebrow dark">QUICK RESERVATION</span><h2>Book a cab</h2></div><span class="booking-badge">● Online enquiry</span></div>
+    {% if messages %}{% for message in messages %}<div class="notice">{{ message }}</div>{% endfor %}{% endif %}
+    <form method="post" class="booking-form" novalidate>{% csrf_token %}
+      {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+      <div class="form-grid">
+        <div class="field"><label for="{{ form.customer_name.id_for_label }}">Full name *</label>{{ form.customer_name }}{{ form.customer_name.errors }}</div>
+        <div class="field"><label for="{{ form.phone.id_for_label }}">Mobile number *</label>{{ form.phone }}{{ form.phone.errors }}</div>
+        <div class="field"><label for="{{ form.trip_type.id_for_label }}">Trip type *</label>{{ form.trip_type }}{{ form.trip_type.errors }}</div>
+        <div class="field"><label for="{{ form.passengers.id_for_label }}">Passengers *</label>{{ form.passengers }}{{ form.passengers.errors }}</div>
+        <div class="field full"><label for="{{ form.pickup.id_for_label }}">Pickup location *</label>{{ form.pickup }}{{ form.pickup.errors }}</div>
+        <div class="field full"><label for="{{ form.dropoff.id_for_label }}">Drop location *</label>{{ form.dropoff }}{{ form.dropoff.errors }}</div>
+        <div class="field"><label for="{{ form.travel_date.id_for_label }}">Travel date *</label>{{ form.travel_date }}{{ form.travel_date.errors }}</div>
+        <div class="field"><label for="{{ form.travel_time.id_for_label }}">Pickup time *</label>{{ form.travel_time }}{{ form.travel_time.errors }}</div>
+        <div class="field"><label for="{{ form.cab_type.id_for_label }}">Preferred cab</label>{{ form.cab_type }}{{ form.cab_type.errors }}</div>
+        <div class="field"><label for="{{ form.email.id_for_label }}">Email (optional)</label>{{ form.email }}{{ form.email.errors }}</div>
+        <div class="field full"><label for="{{ form.notes.id_for_label }}">Additional requirements</label>{{ form.notes }}{{ form.notes.errors }}</div>
+      </div>
+      
+<!-- TERMS AND CONDITIONS CHECKBOX -->
+<div class="terms-checkbox">
+    <label>
+        <input type="checkbox" name="terms" required>
+        <span>
+            I agree to the
+            <a href="{% url 'about' %}#terms" target="_blank"
+               rel="noopener" style ="text-decoration: underline; color: var(--yellow);">
+                Terms & Conditions
+            </a>
+        </span>
+    </label>
+</div>
+      <button class="btn btn-yellow submit-btn" type="submit">Submit & Continue to WhatsApp <span>→</span></button>
+      <p class="form-footnote">Submitting sends your booking details to our website and opens WhatsApp. Fare and availability are confirmed by our team.</p>
+    </form>
+  </div>
+</div></section>
+<section class="section services-section"><div class="container"><div class="section-title"><span class="eyebrow dark">OUR SERVICES</span><h2>Travel made <em>simple</em></h2><p>Choose a ride for your plan, from everyday travel to longer journeys.</p></div><div class="service-grid">
+  <article class="service-card"><div class="service-icon">🏙️</div><h3>Local & City Taxi</h3><p>Convenient rides for errands, meetings and city travel.</p><a href="{% url 'services' %}">Explore service →</a></article>
+  <article class="service-card"><div class="service-icon">✈️</div><h3>Airport Transfer</h3><p>Pre-arranged pickup and drop-off for airport journeys.</p><a href="{% url 'services' %}">Explore service →</a></article>
+  <article class="service-card"><div class="service-icon">🛣️</div><h3>Outstation Cabs</h3><p>Plan intercity travel and trips beyond your city.</p><a href="{% url 'services' %}">Explore service →</a></article>
+  <article class="service-card"><div class="service-icon">↔️</div><h3>One-way & Round Trip</h3><p>Tell us your route and preferred journey type.</p><a href="{% url 'services' %}">Explore service →</a></article>
+</div></div></section>
+
+{% comment %} Image admin apne se dalega {% endcomment %}
+<section class="cab-section">
+    <h2>Our Available Cabs</h2>
+
+    <div class="cab-list">
+        {% for cab in cabs %}
+            <div class="cab-card">
+
+                {% if cab.image %}
+                    <img src="{{ cab.image.url }}"
+                         alt="{{ cab.name }}"
+                         class="cab-image">
+                {% endif %}
+
+                <h3>{{ cab.name }}</h3>
+                <p>Rate: ₹{{ cab.rate_per_km }} / km</p>
+
+            </div>
+        {% empty %}
+            <p>Currently, no cabs are available.</p>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+<section class="popular-routes">
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow dark">EXPLORE DESTINATIONS</span>
+            <h2>Popular Taxi Routes <em>from Delhi</em></h2>
+            <p>Book comfortable cabs for your favourite destinations.</p>
+        </div>
+
+        <div class="popular-route-grid">
+            {% for route in popular_routes %}
+                <a
+                    class="popular-route-link"
+                    href="{% url 'route_detail' route.slug %}"
+                >
+                    Delhi to {{ route.destination }} Taxi
+                </a>
+            {% empty %}
+                <p>Popular routes will be available soon.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="cta-band"><div class="container cta-inner"><div><span class="eyebrow">READY TO TRAVEL?</span><h2>Let’s get you there.</h2><p>Call or message us to discuss your journey.</p></div><div class="cta-actions">
+  <a class="btn btn-dark" href="https://wa.me/91{{ business_phone }}">WhatsApp: {{ business_phone }} ↗</a><a class="btn btn-outline btn-dark" href="mailto:{{ business_email }}">Email: {{ business_email }} ↗
+
+  </a></div></div></section> 
+
+
+  
+
+{% endblock %}

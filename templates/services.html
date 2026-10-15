@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Services | GOLDY CAB SERVICES{% endblock %}
+{% block content %}<section class="page-hero"><div class="container"><span class="eyebrow">WHAT WE OFFER</span><h1>Cab services for<br><em>every journey.</em></h1><p>Choose your trip type and share your requirements with our team.</p></div></section>
+<section class="section"><div class="container service-grid large">
+<article class="service-card"><div class="service-icon">🏙️</div><h3>Local & City Taxi</h3><p>For daily commutes, appointments, shopping and local travel.</p></article>
+<article class="service-card"><div class="service-icon">✈️</div><h3>Airport Transfer</h3><p>Arrange a pickup or drop-off for your airport journey.</p></article>
+<article class="service-card"><div class="service-icon">🛣️</div><h3>Outstation Cab</h3><p>Plan a journey to another city with your preferred schedule.</p></article>
+<article class="service-card"><div class="service-icon">↗</div><h3>One-way Trip</h3><p>Submit your route for a one-direction journey enquiry.</p></article>
+<article class="service-card"><div class="service-icon">↔</div><h3>Round Trip</h3><p>Share your return plan and trip requirements.</p></article>
+<article class="service-card"><div class="service-icon">✦</div><h3>Custom Travel</h3><p>Have a special itinerary? Contact us to discuss the details.</p></article>
+</div><div class="center-action"><a class="btn btn-yellow" href="{% url 'home' %}#booking">Book your ride →</a></div></div></section>{% endblock %}

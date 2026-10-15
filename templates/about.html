@@ -1,0 +1,69 @@
+{% extends "base.html" %}{% block title %}About | GOLDY CAB SERVICES{% endblock %}
+{% block content %}<section class="page-hero">
+    <div class="container">
+        <span class="eyebrow">ABOUT GOLDY CAB SERVICES</span>
+        <h1>Your ride, <em>your way.</em>
+        </h1><p>A customer-focused cab booking service for local, airport and outstation travel.</p>
+    </div>
+</section>
+<section class="section" >
+    <div class="container about-layout">
+        <div><span class="eyebrow dark">OUR APPROACH</span>
+            <h2>Simple booking.<br><em>Clear communication.</em></h2>
+            <p>
+                GOLDY CAB SERVICES helps customers submit trip requests online and connect with the team through 
+                WhatsApp or phone. Booking details are stored in the website dashboard so the team can follow up and
+                 update request status.</p><p>Availability, vehicle assignment and final fare are confirmed directly with 
+                    the customer.
+            </p>
+            <a class="btn btn-yellow" href="{% url 'home' %}#booking">Make an enquiry →</a>
+        </div>
+        <div class="about-highlight">
+            <div class="big-g">G</div>
+            <h3>GOLDY CAB SERVICES</h3>
+            <p>Local • Airport • Outstation</p>
+            <strong>+91 {{ business_phone }}</strong>
+            <a href="mailto:{{ business_email }}">{{ business_email }}</a>
+        </div>
+        </div>
+    </section>
+
+    
+<!-- TERMS AND CONDITIONS -->
+<section class="section terms-section" id="terms" >
+    <div class="container">
+        <div class="section-title">
+            <span class="eyebrow dark">GOLDY CAB SERVICES</span>
+            <h2>Terms & <em>Conditions</em></h2>
+            <p>Please read our booking terms and conditions.</p>
+        </div>
+
+        <div class="terms-content "  >    
+            <h3>Other Conditions</h3>
+
+            <ol>
+                   <li>Night charges will be chargeable as applicable.</li>
+                <li>GST will be applicable as per Government directives.</li>
+                <li>All interstate taxes, permit fees, tolls and
+                    parking charges shall be extra as per actuals.</li>
+                <li>GOLDY CAB SERVICES shall not be held responsible
+                    for belongings left by passengers in the vehicle
+                    or for any loss incurred by the customer.</li>
+                <li>For support, customers can contact us at
+                    <a href="tel:+91{{ business_phone }}">
+                        +91 {{ business_phone }}
+                    </a>
+                    or
+                    <a href="mailto:{{ business_email }}">
+                        {{ business_email }}
+                    </a>.
+                </li>
+                <li>Disputes, if any, will be resolved as per
+                    applicable law.</li>
+                <li>Additional terms and conditions may apply
+                    on a case-by-case basis.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+            {% endblock %}

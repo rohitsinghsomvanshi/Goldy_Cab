@@ -1,0 +1,43 @@
+{% extends "base.html" %}{% block title %}Contact | GOLDY CAB SERVICES{% endblock %}
+{% block content %}<section class="page-hero"><div class="container">
+    <span class="eyebrow">GET IN TOUCH</span>
+    <h1>We’re one message<br><em>away.</em></h1>
+    <p>Contact our team for booking enquiries and trip details.</p>
+</div>
+</section>
+<section class="section">
+    <div class="container contact-grid">
+        <div class="contact-card big">
+            <div class="contact-icon">☎</div>
+            <div><small>Call us</small>
+                <strong>+91 {{ business_phone }}</strong>
+                <a href="tel:+91{{ business_phone }}">Call now →</a>
+            </div>
+        </div>
+        <div class="contact-card big">
+            <div class="contact-icon">☏</div>
+            <div>
+                <small>WhatsApp</small>
+                <strong>Message our team</strong>
+                <a href="https://wa.me/91{{ business_phone }}?text=Hello%20GOLDY%20CAB%20SERVICES">Start chat →</a>
+            </div>
+        </div>
+        <div class="contact-card big">
+            <div class="contact-icon">✉</div>
+            <div>
+                <small>Email us</small>
+                <strong>{{ business_email }}</strong>
+                <a href="mailto:{{ business_email }}">Send an email →</a>
+            </div>
+        </div>
+        <div class="contact-card big">
+            <div class="contact-icon">⌖</div>
+            <div>
+                <small>Service area || NOIDA | GHAZIABAD | GREATER NOIDA | DELHI | AIRPORT | OUTSTATION</small>
+                <strong>Contact for availability</strong>
+                <span>Share your pickup and destination.</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

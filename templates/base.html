@@ -1,0 +1,131 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="GOLDY CAB SERVICES — local, airport and outstation cab booking.">
+
+    <title>{% block title %}GOLDY CAB SERVICES | Cab Booking{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script defer src="{% static 'js/main.js' %}"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container nav-wrap">
+
+            <!-- BRAND LOGO AND NAME -->
+            <a class="brand" href="{% url 'home' %}">
+                <span class="brand-mark">G</span>
+                <span>
+                    GOLDY <b>CAB SERVICES</b>
+                    <small>SAFE • COMFORTABLE • RELIABLE</small>
+                </span>
+            </a>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button
+                class="menu-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                type="button">
+                ☰
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'services' %}">Services</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+
+                <a class="nav-call" href="tel:+91{{ business_phone }}">
+                    Call: {{ business_phone }}
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <!-- FOOTER BRAND -->
+            <div>
+                <a class="brand footer-brand" href="{% url 'home' %}">
+                    <span class="brand-mark">G</span>
+                    <span>
+                        GOLDY <b>CAB SERVICES</b>
+                        <small>YOUR RIDE, OUR PRIORITY</small>
+                    </span>
+                </a>
+
+                <p>
+                    Cab services for local travel, airport transfers
+                    and outstation journeys.
+                </p>
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div>
+                <h3>Quick Links</h3>
+                <a href="{% url 'services' %}">Our Services</a>
+                <a href="{% url 'about' %}">About Us</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+
+            <!-- CONTACT DETAILS -->
+            <div>
+                <h3>Contact</h3>
+
+                <a href="tel:+91{{ business_phone }}">
+                    +91 {{ business_phone }}
+                </a>
+
+                <a href="mailto:{{ business_email }}">
+                    {{ business_email }}
+                </a>
+
+                <a
+                    href="https://wa.me/91{{ business_phone }}"
+                    target="_blank"
+                    rel="noopener">
+                    WhatsApp us
+                </a>
+
+                <span>Off:- LGF:12 Palm Village , Sector:1 Bishrakh , Greater Noida Pin:201306,Uttar Pradesh , India {{ business_address }}</span>
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="copyright">
+            © {% now "Y" %} GOLDY CAB SERVICES. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a
+        class="whatsapp-float"
+        href="https://wa.me/91{{ business_phone }}?text=Hello%20GOLDY%20CAB%20SERVICES%2C%20I%20want%20to%20book%20a%20cab."
+        target="_blank"
+        rel="noopener"
+        aria-label="Chat on WhatsApp">
+        ☏
+    </a>
+
+</body>
+</html>
