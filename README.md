@@ -86,3 +86,13 @@ If you want to change the WhatsApp number, update `BUSINESS_PHONE` in `bookings/
 - `bookings/` — booking model, form, views, and admin
 - `templates/` — page templates
 - `static/` — CSS and JavaScript
+
+
+## 👨‍💻 Author
+
+**Rohit Singh**
+
+MCA Student
+
+Aspiring Data Analyst | Python Developer | Machine Learning Enthusiast
+  
